@@ -1,4 +1,4 @@
-package main;
+package test;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import main.BasePage;
 
 public class BaseTest extends BasePage {
 	DesiredCapabilities capabilities;
