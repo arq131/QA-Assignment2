@@ -1,6 +1,7 @@
 package main;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class NewContactPage extends BasePage {
@@ -10,6 +11,10 @@ public class NewContactPage extends BasePage {
 	private static final String EMAIL = "0x11";
 	private static final String MENU_BUTTON = "com.android.contacts://[@text='Open navigation drawer']";
 	private static final String SAVE = "editor_menu_save_button";
+	
+	public NewContactPage(AndroidDriver<MobileElement> driver) {
+		super(driver);
+	}
 	
 	
 	@AndroidFindBy(id = FIRST_NAME)

@@ -11,11 +11,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import main.BasePage;
+import main.NewContactPage;
 
 public class BaseTest extends BasePage {
 	DesiredCapabilities capabilities;
 	AndroidDriver<MobileElement> driver;
 	
+	// Global Pages
+	NewContactPage newContactPage;
 	@BeforeClass
 	public void setup() {
 		capabilities = new DesiredCapabilities();
@@ -31,6 +34,8 @@ public class BaseTest extends BasePage {
 		} catch (Exception e) {
 			Assert.fail("Unable to set capabilities for appium server. Error found: " + e);
 		}
+		
+		
 		
 	}
 	
