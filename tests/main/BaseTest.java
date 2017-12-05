@@ -1,4 +1,4 @@
-package test;
+package main;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,11 +10,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import main.BasePage;
 
 public class BaseTest extends BasePage {
 	DesiredCapabilities capabilities;
-	AndroidDriver<MobileElement> driver;
 	
 	@BeforeClass
 	public void setup() {
@@ -25,9 +23,9 @@ public class BaseTest extends BasePage {
 			capabilities.setCapability("browserName", "Android");
 			capabilities.setCapability("deviceName", getDeviceId());
 			capabilities.setCapability("appPackage", "");
-			capabilities.setCapability("app", "com.android.contacts");
+			capabilities.setCapability("app", "");
 			
-			driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		} catch (Exception e) {
 			Assert.fail("Unable to set capabilities for appium server. Error found: " + e);
 		}
