@@ -1,14 +1,13 @@
 package test;
 
-
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import main.NewContactPage;
 
 public class AllTests extends BaseTest{
 	
 	public AllTests() {
-		super(driver);
+		super();
 	}
 
 	@Test

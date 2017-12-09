@@ -14,6 +14,7 @@ public class BasePage {
 	private static final String SETTINGS = "nav_settings"; // Coords: 420 , 63
 	
 	public BasePage(AndroidDriver<MobileElement> driver) {
+		System.out.println("Attempt to initialize page");
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 	
