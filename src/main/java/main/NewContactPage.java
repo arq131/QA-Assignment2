@@ -16,7 +16,6 @@ public class NewContactPage extends BasePage {
 		super(driver);
 	}
 	
-	
 	@AndroidFindBy(id = FIRST_NAME)
 	private MobileElement firstName;
 	

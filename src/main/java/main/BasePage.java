@@ -11,18 +11,31 @@ public class BasePage {
 	
 	private static final String CONTACT_ID = "Replace me";
 	private static final String NEW_CONTACT = "floating_action_button";
-	private static final String SETTINGS = "nav_settings"; // Coords: 420 , 63
+	private static final String SETTINGS = "nav_settings"; // Coords: 420 , 63 
 	
 	public BasePage(AndroidDriver<MobileElement> driver) {
-		System.out.println("Attempt to initialize page");
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 	
 	@AndroidFindBy(id = CONTACT_ID)
 	private MobileElement contact_id;
 	
+	@AndroidFindBy(id = NEW_CONTACT)
+	private MobileElement new_contact;
+	
+	@AndroidFindBy(id = SETTINGS)
+	private MobileElement settings;
+	
 	public MobileElement getContactId() {
 		return contact_id;
+	}
+	
+	public MobileElement getNewContact() {
+		return new_contact;
+	}
+	
+	public MobileElement getSettings() {
+		return settings;
 	}
 	
 
