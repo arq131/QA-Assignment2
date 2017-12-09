@@ -1,14 +1,20 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class AllTests extends BaseTest{
+import main.NewContactPage;
+
+public class AllTests extends BaseTest{
+	
+	public AllTests() {
+		super(driver);
+	}
 
 	@Test
-	void CreateNewContactTest() {
-		newContactPage = new NewContactPage();
+	public void CreateNewContactTest() {
+		newContactPage = new NewContactPage(driver);
+		System.out.println("Hello");
 	}
 
 }
