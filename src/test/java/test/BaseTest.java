@@ -40,10 +40,12 @@ public class BaseTest {
 			capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 			capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Android");
 			capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus_5X_API_25");
-			capabilities.setCapability("app", "com.android.contacts");
+			capabilities.setCapability("automationName", "Appium");
+			capabilities.setCapability("appPackage", "com.android.contacts");
 			capabilities.setCapability("appActivity", "com.android.contacts.activities.PeopleActivity");
 			capabilities.setCapability("avd", "Nexus_5X_API_25");
 			capabilities.setCapability("clearSystemFiles", "true");
+			capabilities.setCapability("fullReset", false);
 			System.out.println("Capabilities set. Attempting to create driver...");
 			
 			driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
@@ -81,7 +83,9 @@ public class BaseTest {
 		return true;
 	}
 	
-	public void swipe(String direction) {
+	public void swipe(String direction) throws Exception {
+		// wait 5 seconds before attempting to swipe
+		Thread.sleep(500);
 		Dimension size = driver.manage().window().getSize();
 		
 		int starty= (int) (size.height * .8);
@@ -93,6 +97,9 @@ public class BaseTest {
 			driver.swipe(startx, starty, startx, endy, 3000);
 		else if (direction.toLowerCase().equals("up"))
 			driver.swipe(startx, endy, startx, starty, 3000);
+		
+		// wait 5 seconds after swiping so it's done
+			Thread.sleep(500);
 	}
 
 }

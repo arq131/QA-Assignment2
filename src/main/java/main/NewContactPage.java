@@ -5,29 +5,32 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class NewContactPage extends BasePage {
-	private static final String FIRST_NAME = "0x2";
-	private static final String PHONE_NUMBER = "0x11";
-	private static final String EMAIL = "0x13";
-	private static final String MENU_BUTTON = "menu_save";
-	private static final String SAVE = "editor_menu_save_button";
+	private static final String FIRST_NAME = "//android.widget.EditText[@text='Name']";
+	private static final String PHONE_NUMBER = "//android.widget.EditText[@text='Phone']";
+	private static final String EMAIL = "//android.widget.EditText[@text='Email']";
+	private static final String MORE_FIELDS = "//android.widget.EditText[@text='More Fields']";
+	private static final String SAVE = "menu_save";
 	private static final String LOCAL = "left_button";
-	private static final String ADDRESS = "0x15";
+	private static final String ADDRESS = "//android.widget.EditText[@text='Address']";
+	private static final String STAR = "menu_star";
+	private static final String EDIT = "menu_edit";
+	private static final String CONTACT_PICTURE = "photo_touch_intercept_overlay";
 	
 	public NewContactPage(AndroidDriver<MobileElement> driver) {
 		super(driver);
 	}
 	
-	@AndroidFindBy(id = FIRST_NAME)
+	@AndroidFindBy(xpath = FIRST_NAME)
 	private MobileElement firstName;
 
-	@AndroidFindBy(id = PHONE_NUMBER)
+	@AndroidFindBy(xpath = PHONE_NUMBER)
 	private MobileElement phoneNumber;
 	
-	@AndroidFindBy(id = EMAIL)
+	@AndroidFindBy(xpath = EMAIL)
 	private MobileElement email;
 	
-	@AndroidFindBy(id = MENU_BUTTON)
-	private MobileElement menuButton;
+	@AndroidFindBy(xpath = MORE_FIELDS)
+	private MobileElement moreFields;
 	
 	@AndroidFindBy(id = SAVE)
 	private MobileElement save;
@@ -35,8 +38,17 @@ public class NewContactPage extends BasePage {
 	@AndroidFindBy(id = LOCAL)
 	private MobileElement local;
 	
-	@AndroidFindBy(id = ADDRESS)
+	@AndroidFindBy(xpath = ADDRESS)
 	private MobileElement address;
+	
+	@AndroidFindBy(id = STAR)
+	private MobileElement star;
+	
+	@AndroidFindBy(id = EDIT)
+	private MobileElement edit;
+	
+	@AndroidFindBy(id = CONTACT_PICTURE)
+	private MobileElement picture;
 	
 	public MobileElement getFirstName() {
 		return firstName;
@@ -50,8 +62,8 @@ public class NewContactPage extends BasePage {
 		return email;
 	}
 	
-	public MobileElement getMenuButton() {
-		return menuButton;
+	public MobileElement getFields() {
+		return moreFields;
 	}
 	
 	public MobileElement getSave() {
@@ -64,5 +76,17 @@ public class NewContactPage extends BasePage {
 	
 	public MobileElement getAddress() {
 		return address;
+	}
+	
+	public MobileElement getStar() {
+		return star;
+	}
+	
+	public MobileElement getEdit() {
+		return edit;
+	}
+	
+	public MobileElement getPicture() {
+		return picture;
 	}
 }
